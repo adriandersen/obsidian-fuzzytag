@@ -166,7 +166,6 @@ class FuzzyTagSettingsTab extends PluginSettingTab {
 					.setPlaceholder("#ff9900")
 					.setValue(this.plugin.settings.matchColor)
 					.onChange(async (value) => {
-						console.log("Secret: " + value);
 						this.plugin.settings.matchColor = value;
 						await this.plugin.saveSettings();
 					})
