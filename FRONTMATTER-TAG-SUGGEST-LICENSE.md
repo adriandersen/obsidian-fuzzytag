@@ -9,4 +9,4 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-(original file: [https://github.com/jmilldotdev/obsidian-frontmatter-tag-suggest/blob/master/LICENSE.md](https://github.com/jmilldotdev/obsidian-frontmatter-tag-suggest/blob/d80bcfb64d96d7fcb908deb5f4b0c9c8041c267c/LICENSE.md))
+(original file: https://github.com/jmilldotdev/obsidian-frontmatter-tag-suggest/blob/d80bcfb64d96d7fcb908deb5f4b0c9c8041c267c/LICENSE.md)
