@@ -1,6 +1,6 @@
 # Fuzzytag
 
-Strongly based on tge Frontmatter Tag Suggest plugin
+Based on the Frontmatter Tag Suggest plugin
 https://github.com/jmilldotdev/obsidian-frontmatter-tag-suggest
 
 This plugin has been made because fuzzy search would change the functionality of the original plugin, which might not be desired by everyone.
