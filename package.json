@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-fuzzytag",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Fuzzy match autocomplete tags in Frontmatter",
 	"main": "main.js",
 	"scripts": {

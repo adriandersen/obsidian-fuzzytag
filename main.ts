@@ -15,9 +15,11 @@ const fuzzysort = require("fuzzysort");
 
 interface PluginSettings {
 	matchColor: string;
+	quotation: boolean;
 }
 const DEFAULT_SETTINGS: PluginSettings = {
-	matchColor: "#ff0000",
+	matchColor: "#ff2200",
+	quotation: false,
 };
 
 export default class FrontmatterFuzzyTagPlugin extends Plugin {
@@ -66,6 +68,7 @@ class FuzzyTag extends EditorSuggest<string> {
 		return false;
 	}
 	inline = false;
+	usesQuotationmarks = false;
 	onTrigger(
 		cursor: EditorPosition,
 		editor: Editor,
@@ -80,8 +83,13 @@ class FuzzyTag extends EditorSuggest<string> {
 			this.inline =
 				lineContents.startsWith("tags:") ||
 				lineContents.startsWith("tag:");
+			this.usesQuotationmarks = lineContents.includes('"');
 			const sub = editor.getLine(cursor.line).substring(0, cursor.ch);
-			const match = sub.match(/(\S+)$/)?.first();
+
+			const match = sub
+				.match(/\"?(\S+)\"?$/)
+				?.first()
+				?.replace('"', "");
 			if (match) {
 				this.tags = this.getAllTagsWithoutHashtag();
 				const matchData = {
@@ -126,10 +134,13 @@ class FuzzyTag extends EditorSuggest<string> {
 
 	selectSuggestion(suggestion: string): void {
 		if (this.context) {
+			if (this.plugin.settings.quotation) {
+				suggestion = `"${suggestion}"`;
+			}
 			if (this.inline) {
-				suggestion = `"${suggestion}",`;
+				suggestion = `${suggestion},`;
 			} else {
-				suggestion = `${suggestion}\n -`;
+				suggestion = `${suggestion}\n-`;
 			}
 			(this.context.editor as Editor).replaceRange(
 				//This might break if you use special characters in your tags
@@ -170,5 +181,14 @@ class FuzzyTagSettingsTab extends PluginSettingTab {
 						await this.plugin.saveSettings();
 					})
 			);
+		new Setting(containerEl)
+			.setName("Use Quotation marks")
+			.setDesc("Use quotation marks for tags (experimental)")
+			.addToggle((toggle) => {
+				toggle.setValue(false).onChange(async (val) => {
+					this.plugin.settings.quotation = val;
+					await this.plugin.saveSettings();
+				});
+			});
 	}
 }
