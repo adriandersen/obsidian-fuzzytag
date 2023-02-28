@@ -11,4 +11,3 @@ Thanks to the original plugin developer for the inspiration and base for creatin
 ## Known issues:
 
 Hacky implementation of highlighting in suggestions means that tags with special characters (`<` or `>`) might break. Feel free to submit a PR if this doesnt work with your workflow.
-Only works with array style tag definition
