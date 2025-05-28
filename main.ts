@@ -139,15 +139,14 @@ class FuzzyTag extends EditorSuggest<string> {
 			}
 			if (this.inline) {
 				suggestion = `${suggestion},`;
-			} else {
-				suggestion = `${suggestion}\n-`;
 			}
 			(this.context.editor as Editor).replaceRange(
 				//This might break if you use special characters in your tags
-				`${suggestion.replace(/<\/?[^>]+(>|$)/g, "")} `,
+				`${suggestion.replace(/<\/?[^>]+(>|$)/g, "")}`,
 				this.context.start,
 				this.context.end
 			);
+			this.close();
 		}
 	}
 }
